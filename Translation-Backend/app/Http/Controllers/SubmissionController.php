@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Submission;
+use App\Mail\SubmissionReceived;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
@@ -25,6 +27,7 @@ class SubmissionController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email',
+            'phone_number' => 'required|string|max:20',
             'target_language' => 'required',
             'file' => 'required|file|mimes:pdf,doc,docx',
         ]);
@@ -36,19 +39,21 @@ class SubmissionController extends Controller
         $submission = Submission::create([
             'name' => $request->name,
             'email' => $request->email,
+            'phone_number' => $request->phone_number,
             'target_language' => $request->target_language,
             'notes' => $request->notes,
             'file_path' => $filePath,
         ]);
 
         // Send email to translator (dummy example)
-        Mail::raw("New submission received from {$submission->name}.", function ($message) use ($submission) {
-            $message->to('translator@example.com')
-                    ->subject('New Translation Request');
-        });
-
-        return response()->json(['message' => 'Submission received!', 'data' => $submission], 201);
-
+        Mail::to('jonathanryan2015@gmail.com') //dont forget to change this to the actual translator email
+        //->cc('jonathanryan2015@gmail.com)
+        ->send(new SubmissionReceived($submission));
+        
+        return response()->json([
+            'message' => 'Submission received and sent to translator!',
+            'data' => $submission
+        ], 201);
     }
 
     /**

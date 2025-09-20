@@ -12,6 +12,7 @@ class Submission extends Model
     protected $fillable = [
         'name',
         'email',
+        'phone_number',
         'target_language',
         'notes',
         'file_path',
