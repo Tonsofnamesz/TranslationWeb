@@ -7,7 +7,7 @@ const CompanyInfo: React.FC = () => {
         Professional Translation Services
       </h2>
       <p className="text-gray-600 max-w-2xl mx-auto">
-        Lorem Ipsum
+        Lorem Ipsum test
       </p>
     </section>
   );
