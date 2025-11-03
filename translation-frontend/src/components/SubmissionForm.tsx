@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Mail, MapPin } from "lucide-react";
 
 interface FormData {
   name: string;
@@ -71,7 +72,7 @@ const SubmissionForm: React.FC = () => {
         target_language: "",
         notes: "",
         file: null,
-      }); // clear form
+      });
     } catch (err: any) {
       console.error(err);
       setMessage("❌ Error: Could not submit");
@@ -81,85 +82,178 @@ const SubmissionForm: React.FC = () => {
   };
 
   return (
-    <div className="max-w-lg mx-auto p-6 bg-white shadow rounded">
-      <h2 className="text-xl font-bold mb-4">Submit a Document</h2>
-      {message && (
-        <p
-          className={`mb-4 ${
-            message.startsWith("✅")
-              ? "text-green-600"
-              : message.startsWith("❌")
-              ? "text-red-600"
-              : "text-yellow-600"
-          }`}
-        >
-          {message}
-        </p>
-      )}
+    <div className="max-w-6xl mx-auto px-6 py-12">
+      <div className="flex flex-col lg:flex-row gap-12 items-start">
+        {/* Left Side — Form */}
+        <div className="lg:w-2/3">
+          <h2 className="text-2xl font-semibold text-gray-800 mb-6">
+            Submit a Document
+          </h2>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <input
-          type="text"
-          name="name"
-          placeholder="Your Name"
-          value={formData.name}
-          onChange={handleChange}
-          required
-          className="w-full p-2 border rounded"
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Your Email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-          className="w-full p-2 border rounded"
-        />
-        <input
-          type="tel"
-          name="phone_number"
-          placeholder="Your Phone Number"
-          value={formData.phone_number}
-          onChange={handleChange}
-          required
-          className="w-full p-2 border rounded"
-        />
-        <input
-          type="text"
-          name="target_language"
-          placeholder="Target Language To Be Translated"
-          value={formData.target_language}
-          onChange={handleChange}
-          required
-          className="w-full p-2 border rounded"
-        />
-        <textarea
-          name="notes"
-          placeholder="Notes"
-          value={formData.notes}
-          onChange={handleChange}
-          className="w-full p-2 border rounded"
-        />
-        <input
-          type="file"
-          name="file"
-          accept=".pdf,.doc,.docx"
-          onChange={handleFileChange}
-          required
-          className="w-full"
-        />
-        <button
-          type="submit"
-          disabled={loading}
-          className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700"
-        >
-          {loading ? "Submitting..." : "Submit"}
-        </button>
-      </form>
+          {message && (
+            <p
+              className={`mb-4 ${
+                message.startsWith("✅")
+                  ? "text-green-600"
+                  : message.startsWith("❌")
+                  ? "text-red-600"
+                  : "text-yellow-600"
+              }`}
+            >
+              {message}
+            </p>
+          )}
+
+          <form onSubmit={handleSubmit} className="space-y-6">
+            {/* Two-column layout */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Full Name
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="w-full p-3 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-400 outline-none bg-white/80"
+                  placeholder="Enter your name"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="w-full p-3 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-400 outline-none bg-white/80"
+                  placeholder="Enter your email"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Phone Number
+                </label>
+                <input
+                  type="tel"
+                  name="phone_number"
+                  value={formData.phone_number}
+                  onChange={handleChange}
+                  required
+                  className="w-full p-3 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-400 outline-none bg-white/80"
+                  placeholder="Enter your phone number"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Target Language
+                </label>
+                <input
+                  type="text"
+                  name="target_language"
+                  value={formData.target_language}
+                  onChange={handleChange}
+                  required
+                  className="w-full p-3 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-400 outline-none bg-white/80"
+                  placeholder="e.g., English to Indonesian"
+                />
+              </div>
+            </div>
+
+            {/* Notes */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Notes
+              </label>
+              <textarea
+                name="notes"
+                value={formData.notes}
+                onChange={handleChange}
+                rows={4}
+                className="w-full p-3 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-400 outline-none bg-white/80"
+                placeholder="Additional details or instructions"
+              />
+            </div>
+
+            {/* File upload */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Upload File
+              </label>
+              <input
+                type="file"
+                name="file"
+                accept=".pdf,.doc,.docx"
+                onChange={handleFileChange}
+                required
+                className="w-full border p-2 rounded-md shadow-sm bg-white/80 cursor-pointer hover:bg-white"
+              />
+            </div>
+
+            {/* Submit button */}
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full bg-blue-600 text-white p-3 rounded-md font-semibold hover:bg-blue-700 transition-colors shadow-md"
+            >
+              {loading ? "Submitting..." : "Submit"}
+            </button>
+          </form>
+        </div>
+
+        {/* Right Side — Description & Contact */}
+        <div className="lg:w-1/3 flex flex-col justify-start mt-10 lg:mt-16">
+          <p className="text-gray-600 mb-8">
+            We ensure professional translations with strict confidentiality
+            and fast turnaround times. Our certified translators guarantee
+            accuracy and compliance with local regulations.
+          </p>
+
+          <div>
+            <h3 className="text-xl font-semibold text-gray-800 mb-4 text-left">
+              Contact
+            </h3>
+
+            <div className="space-y-6">
+              {/* Email */}
+              <div>
+                <div className="flex items-center gap-2 mb-1">
+                  <Mail className="text-blue-600" size={20} />
+                  <h4 className="font-semibold text-gray-800">Email</h4>
+                </div>
+                <p className="text-gray-600 ml-7">
+                  contact@translationcompany.com
+                </p>
+              </div>
+
+              {/* Address */}
+              <div>
+                <div className="flex items-center gap-2 mb-1">
+                  <MapPin className="text-blue-600" size={20} />
+                  <h4 className="font-semibold text-gray-800">Address</h4>
+                </div>
+                <p className="text-gray-600 ml-7">
+                  Jl. Sudirman No. 123, Jakarta, Indonesia
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
 
 export default SubmissionForm;
+
+
+
 
