@@ -4,87 +4,81 @@ const QualitySection: React.FC = () => {
   return (
     <section
       id="quality"
-      className="bg-green-100 py-16 px-6"
+      className="bg-[#F7F5F2] py-16 px-6 font-[Afacad]"
     >
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-stretch gap-10">
         {/* Left Side - Image Placeholder (stretched full height) */}
-        <div className="flex-1 bg-green-300 rounded-lg shadow-inner h-auto lg:h-auto min-h-[300px]">
-          {/* Replace with actual image later */}
-          {/* Example: 
+        <div className="flex-1 rounded-lg shadow-inner h-auto lg:h-auto min-h-[300px]">
           <img
-            src="/path/to/image.jpg"
+            src="/assets/batik3.png"
             alt="Quality Assurance"
             className="w-full h-full object-cover rounded-lg shadow-inner"
           /> 
-          */}
         </div>
 
         {/* Right Side - Content */}
         <div className="flex-1 text-gray-700 flex flex-col justify-between self-stretch">
           {/* Top: Title and Paragraph */}
           <div>
-            <h2 className="text-3xl font-semibold text-gray-800 mb-3">
-              Our Commitment to Quality
+            <h2 className="text-5xl font-semibold text-[#1E1E1E] font-['Playfair_Display'] mb-3">
+              Quality and Reliability
             </h2>
-            <p className="text-gray-600 leading-relaxed">
-              Every translation project is handled by professionals who ensure precision, confidentiality, 
-              and cultural accuracy. Our goal is to exceed client expectations with every document delivered.
+            <p className="text-[#1E1E1E] leading-relaxed mb-4">
+              With a Master's degree in Applied Foreign Languages and over 11 years of experience as a translator and interpreter at the Indonesian Embassy in Paris, I provide language services that combine linguistic expertise, cultural sensitivity, and professional reliability.
+            </p>
+            <p className="text-[#1E1E1E] leading-relaxed mb-4">
+              My services are designed for use in France and worldwide, ensuring that translations are meticulously prepared for recognition by French, Indonesian, and international administrations, guaranteeing the official validity of your documents.
             </p>
           </div>
 
           {/* Divider */}
-          <div className="border-t border-gray-300 my-6" />
+          <div className="border-t border-gray-300 my-2" />
 
           {/* Middle: 3 Qualities */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 text-center gap-6 mb-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 text-center gap-6 mb-2">
             <div>
-              <h3 className="text-3xl font-bold text-gray-800">10+</h3>
-              <p className="text-sm text-gray-600">Years of Experience</p>
+              <h3 className="text-3xl font-bold text-[#D88F29] font-['Playfair_Display']">11+</h3>
+              <p className="text-sm text-[#1E1E1E]">Years of Experience</p>
             </div>
             <div>
-              <h3 className="text-3xl font-bold text-gray-800">3–5</h3>
-              <p className="text-sm text-gray-600">Day Standard Delivery</p>
+              <h3 className="text-3xl font-bold text-[#D88F29] font-['Playfair_Display']">2–4</h3>
+              <p className="text-sm text-[#1E1E1E]">Day Standard Delivery</p>
             </div>
             <div>
-              <h3 className="text-3xl font-bold text-gray-800">98%</h3>
-              <p className="text-sm text-gray-600">Client Satisfaction</p>
+              <h3 className="text-3xl font-bold text-[#D88F29] font-['Playfair_Display']">100%</h3>
+              <p className="text-sm text-[#1E1E1E]">Client Satisfaction</p>
             </div>
           </div>
 
           {/* Divider */}
-          <div className="border-t border-gray-300 my-6" />
+          <div className="border-t border-gray-300 my-2" />
 
           {/* Bottom: Descriptions */}
           <div className="space-y-6">
             <div>
-              <h4 className="font-semibold text-lg text-gray-800 mb-2">
-                Certified Translators
+              <h4 className="font-semibold text-lg text-[#D88F29] font-['Playfair_Display'] mb-2">
+                Official & Academic Credentials
               </h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                All of our translators are government-certified and subject-matter experts. 
-                Each document undergoes strict review to ensure terminology accuracy 
-                and compliance with regional linguistic standards.
+              <p className="text-[#1E1E1E] text-sm leading-relaxed">
+                Master's degree in Applied Foreign Languages from La Rochelle University and over a decade of professional experience as an official translator and interpreter at the Indonesian Embassy in Paris.
               </p>
             </div>
 
             <div>
-              <h4 className="font-semibold text-lg text-gray-800 mb-2">
-                Consistent Workflow
+              <h4 className="font-semibold text-lg text-[#D88F29] font-['Playfair_Display'] mb-2">
+                Specialized Languages & Fields
               </h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                We follow a structured translation and review process that ensures consistency 
-                across every project. From submission to delivery, clients are informed and involved 
-                throughout each step.
+              <p className="text-[#1E1E1E] text-sm leading-relaxed">
+                Expert in Indonesian-French and Malay-French translations, with a specialized focus on the complexities of legal, financial, and administrative documents.
               </p>
             </div>
 
             <div>
-              <h4 className="font-semibold text-lg text-gray-800 mb-2">
-                Secure Handling
+              <h4 className="font-semibold text-[#D88F29] font-['Playfair_Display'] mb-2">
+                Quality & Reliability Guarantee
               </h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                Confidentiality is our top priority. All documents are managed securely 
-                with encryption and privacy protection policies in place for complete peace of mind.
+              <p className="text-[#1E1E1E] text-sm leading-relaxed">
+                Each translation is delivered with a steadfast commitment to accuracy and professional reliability, certified with an official stamp and signature to ensure its legal validity.
               </p>
             </div>
           </div>

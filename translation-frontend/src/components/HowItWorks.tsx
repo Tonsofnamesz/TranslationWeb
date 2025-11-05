@@ -2,14 +2,14 @@ import React from "react";
 
 const HowItWorks: React.FC = () => {
   return (
-    <section id="process" className="bg-blue-50 py-16 px-6">
+    <section id="process" className="bg-[#F7F5F2] py-16 px-6 font-[Afacad]">
       <div className="max-w-6xl mx-auto">
         {/* Title + Subtitle */}
         <div className="mb-10 text-left">
-          <h2 className="text-3xl font-semibold text-gray-800 mb-2">
+          <h2 className="text-3xl font-semibold font-['Playfair_Display'] text-[#1E1E1E] mb-2">
             How It Works
           </h2>
-          <p className="text-gray-600 text-lg">
+          <p className="text-[#6E6457] text-lg">
             Simple and secure process
           </p>
         </div>
@@ -19,36 +19,36 @@ const HowItWorks: React.FC = () => {
           {[
             {
               num: 1,
-              title: "Upload Document",
-              desc: "Select the document you want translated. We support PDF, DOC, and DOCX formats.",
+              title: "Document Submission",
+              desc: "Send your document by email. Optional: Personalized guidance by phone or email.",
             },
             {
               num: 2,
-              title: "Provide Details",
-              desc: "Fill in your contact info, target language, and any specific notes for translation.",
+              title: "Quote & Payment",
+              desc: "Receive a quote and confirm by email. Pay securely via bank transfer.",
             },
             {
               num: 3,
-              title: "We Process It",
-              desc: "Your file is securely reviewed and translated by certified professionals.",
+              title: "Confirmation",
+              desc: "Get order confirmation with delivery date.",
             },
             {
               num: 4,
-              title: "Receive Translation",
-              desc: "Get your completed translation delivered to your email within the timeline.",
+              title: "Delivery",
+              desc: "Receive your translation by email. Certified copies can also be mailed 2–4 business days later. Pickup available by appointment in Toulouse.",
             },
           ].map((step) => (
             <div
               key={step.num}
               className="flex flex-col items-center text-center"
             >
-              <div className="w-16 h-16 flex items-center justify-center bg-blue-600 text-white text-2xl font-bold rounded-full mb-4 shadow-md">
+              <div className="w-16 h-16 flex items-center justify-center text-[#D88F29] text-6xl font-bold rounded-full mb-4 font-['Playfair_Display']">
                 {step.num}
               </div>
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">
+              <h3 className="text-lg font-semibold text-[#1E1E1E] font-['Playfair_Display'] mb-2">
                 {step.title}
               </h3>
-              <p className="text-sm text-gray-600">{step.desc}</p>
+              <p className="text-sm text-[#6E6457]">{step.desc}</p>
             </div>
           ))}
         </div>

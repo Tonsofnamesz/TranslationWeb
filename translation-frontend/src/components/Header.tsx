@@ -2,45 +2,61 @@ import React from "react";
 
 const Header: React.FC = () => {
   return (
-    <aside className="fixed top-0 left-0 h-full w-64 bg-white shadow-lg flex flex-col justify-between">
+    <aside className="fixed top-0 left-0 h-full w-64 bg-[#1E1E1E] shadow-lg flex flex-col justify-between font-[Afacad]">
       {/* Logo / Brand */}
       <div>
-        <div className="px-6 py-6 border-b">
-          <h1 className="text-2xl font-bold text-gray-800">Lorem Ipsum</h1>
+        <div className="px-6 py-6 border-b border-gray-700 flex items-center">
+          <div className="bg-white w-16 h-16 rounded-md flex items-center justify-center">
+          </div>
         </div>
 
         {/* Navigation Links */}
         <nav className="mt-6">
-          <ul className="flex flex-col space-y-2 px-4 text-gray-700 font-medium">
+          <ul className="flex flex-col space-y-2 px-4 text-gray-300 font-medium">
             <li>
-              <a href="#home" className="block px-3 py-2 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition">
+              <a
+                href="#home"
+                className="block px-3 py-2 rounded-lg hover:bg-[#AB6A10]/20 hover:text-[#F7F5F2] transition font-['Playfair_Display']"
+              >
                 Home
               </a>
             </li>
             <li>
-              <a href="#service" className="block px-3 py-2 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition">
+              <a
+                href="#service"
+                className="block px-3 py-2 rounded-lg hover:bg-[#AB6A10]/20 hover:text-[#F7F5F2] transition font-['Playfair_Display']"
+              >
                 Service
               </a>
             </li>
             <li>
-              <a href="#about" className="block px-3 py-2 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition">
+              <a
+                href="#about"
+                className="block px-3 py-2 rounded-lg hover:bg-[#AB6A10]/20 hover:text-[#F7F5F2] transition font-['Playfair_Display']"
+              >
                 About
               </a>
             </li>
             <li>
-              <a href="#process" className="block px-3 py-2 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition">
+              <a
+                href="#process"
+                className="block px-3 py-2 rounded-lg hover:bg-[#AB6A10]/20 hover:text-[#F7F5F2] transition font-['Playfair_Display']"
+              >
                 Process
               </a>
             </li>
             <li>
-              <a href="#contact" className="block px-3 py-2 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition">
+              <a
+                href="#contact"
+                className="block px-3 py-2 rounded-lg hover:bg-[#AB6A10]/20 hover:text-[#F7F5F2] transition font-['Playfair_Display']"
+              >
                 Contact
               </a>
             </li>
-            <li className="pt-4 border-t mt-2">
+            <li className="pt-4 border-t border-gray-700 mt-2">
               <a
                 href="#submit"
-                className="block text-center px-3 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition font-semibold"
+                className="block text-center px-3 py-2 rounded-lg bg-[#F7F5F2] text-[#1E1E1E] hover:bg-[#925b0e] transition font-semibold"
               >
                 Submit Form
               </a>
@@ -49,8 +65,8 @@ const Header: React.FC = () => {
         </nav>
       </div>
 
-      {/* Footer Section (optional small tagline or copyright) */}
-      <div className="px-6 py-4 border-t text-sm text-gray-500">
+      {/* Footer Section */}
+      <div className="px-6 py-4 border-t border-gray-700 text-sm text-gray-400 text-center">
         © 2025 Lorem Ipsum
       </div>
     </aside>
@@ -58,4 +74,6 @@ const Header: React.FC = () => {
 };
 
 export default Header;
+
+
 

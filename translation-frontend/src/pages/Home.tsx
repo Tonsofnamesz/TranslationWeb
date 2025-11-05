@@ -9,7 +9,7 @@ import Footer from "../components/Footer";
 
 const Home: React.FC = () => {
   return (
-    <div className="min-h-screen flex bg-gray-50 pl-64">
+    <div className="min-h-screen flex bg-gray-50 pl-64 bg-[#F7F5F2]">
       {/* Sidebar */}
       <Header />
 
@@ -28,11 +28,7 @@ const Home: React.FC = () => {
         <HowItWorks />
 
         {/* Submission Form */}
-        <section id="submit" className="bg-yellow-100 py-16 px-6">
-          <div className="max-w-5xl mx-auto text-center">
-            <SubmissionForm />
-          </div>
-        </section>
+        <SubmissionForm />
 
         {/* Footer */}
         <Footer />
