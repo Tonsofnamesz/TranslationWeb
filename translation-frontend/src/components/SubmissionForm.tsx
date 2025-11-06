@@ -6,7 +6,6 @@ interface FormData {
   name: string;
   email: string;
   phone_number: string;
-  target_language: string;
   notes: string;
   file: File | null;
 }
@@ -16,7 +15,6 @@ const SubmissionForm: React.FC = () => {
     name: "",
     email: "",
     phone_number: "",
-    target_language: "",
     notes: "",
     file: null,
   });
@@ -48,7 +46,6 @@ const SubmissionForm: React.FC = () => {
     submission.append("name", formData.name);
     submission.append("email", formData.email);
     submission.append("phone_number", formData.phone_number);
-    submission.append("target_language", formData.target_language);
     submission.append("notes", formData.notes);
     submission.append("file", formData.file);
 
@@ -69,7 +66,6 @@ const SubmissionForm: React.FC = () => {
         name: "",
         email: "",
         phone_number: "",
-        target_language: "",
         notes: "",
         file: null,
       });
@@ -86,9 +82,15 @@ const SubmissionForm: React.FC = () => {
       <div className="flex flex-col lg:flex-row gap-12 items-start">
         {/* Left Side — Form */}
         <div className="lg:w-2/3">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-6">
+          <h2 className="text-2xl font-semibold text-gray-800 mb-2">
             Submit a Document
           </h2>
+          <p className="text-lg font-medium text-[#AB6A10] mb-1">
+            Get Your Document Translated – Fast & Easy!
+          </p>
+          <p className="text-[#1E1E1E] mb-6">
+            Order your Indonesian or Malay translation in just one click.
+          </p>
 
           {message && (
             <p
@@ -151,21 +153,20 @@ const SubmissionForm: React.FC = () => {
                   placeholder="Enter your phone number"
                 />
               </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Upload File
+              </label>
+              <input
+                type="file"
+                name="file"
+                accept=".pdf,.doc,.docx"
+                onChange={handleFileChange}
+                required
+                className="w-full border p-2 rounded-md shadow-sm bg-white/80 cursor-pointer hover:bg-white"
+              />
+            </div>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Target Language
-                </label>
-                <input
-                  type="text"
-                  name="target_language"
-                  value={formData.target_language}
-                  onChange={handleChange}
-                  required
-                  className="w-full p-3 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-400 outline-none bg-white/80"
-                  placeholder="e.g., English to Indonesian"
-                />
-              </div>
             </div>
 
             {/* Notes */}
@@ -184,25 +185,12 @@ const SubmissionForm: React.FC = () => {
             </div>
 
             {/* File upload */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Upload File
-              </label>
-              <input
-                type="file"
-                name="file"
-                accept=".pdf,.doc,.docx"
-                onChange={handleFileChange}
-                required
-                className="w-full border p-2 rounded-md shadow-sm bg-white/80 cursor-pointer hover:bg-white"
-              />
-            </div>
 
             {/* Submit button */}
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-blue-600 text-white p-3 rounded-md font-semibold hover:bg-blue-700 transition-colors shadow-md"
+              className="w-full bg-[#1E1E1E] text-white p-3 rounded-md font-semibold hover:bg-[#AB6A10] transition-colors shadow-md"
             >
               {loading ? "Submitting..." : "Submit"}
             </button>
@@ -211,10 +199,11 @@ const SubmissionForm: React.FC = () => {
 
         {/* Right Side — Description & Contact */}
         <div className="lg:w-1/3 flex flex-col justify-start mt-10 lg:mt-16">
-          <p className="text-gray-600 mb-8">
-            We ensure professional translations with strict confidentiality
-            and fast turnaround times. Our certified translators guarantee
-            accuracy and compliance with local regulations.
+          <p className="text-[#1E1E1E] mb-8">
+            <span className="font-semibold">
+              Official Sworn Translator | High-Quality, Accurate,
+              </span>{" "}
+             I provide translations that combine technical precision with linguistic finesse. Request your free, non-binding quote by sending your document in just one click!
           </p>
 
           <div>
@@ -226,22 +215,22 @@ const SubmissionForm: React.FC = () => {
               {/* Email */}
               <div>
                 <div className="flex items-center gap-2 mb-1">
-                  <Mail className="text-blue-600" size={20} />
-                  <h4 className="font-semibold text-gray-800">Email</h4>
+                  <Mail className="text-[#1E1E1E]" size={20} />
+                  <h4 className="font-semibold text-[#000000]">Email</h4>
                 </div>
-                <p className="text-gray-600 ml-7">
-                  contact@translationcompany.com
+                <p className="text-[#6E6457] ml-7">
+                  sguerande@yahoo.fr
                 </p>
               </div>
 
               {/* Address */}
               <div>
                 <div className="flex items-center gap-2 mb-1">
-                  <MapPin className="text-blue-600" size={20} />
-                  <h4 className="font-semibold text-gray-800">Address</h4>
+                  <MapPin className="text-[##6E6457]" size={20} />
+                  <h4 className="font-semibold text-[#000000]">Address</h4>
                 </div>
-                <p className="text-gray-600 ml-7">
-                  Jl. Sudirman No. 123, Jakarta, Indonesia
+                <p className="text-[#6E6457] ml-7">
+                  Toulouse - 06.509.63.507
                 </p>
               </div>
             </div>

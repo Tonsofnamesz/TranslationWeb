@@ -14,7 +14,7 @@ const Home: React.FC = () => {
       <Header />
 
       {/* Main Content */}
-      <main className="flex-grow flex flex-col">
+      <main className="flex-grow flex flex-col bg-[#F7F5F2]">
         {/* Company Info */}
         <CompanyInfo />
 
