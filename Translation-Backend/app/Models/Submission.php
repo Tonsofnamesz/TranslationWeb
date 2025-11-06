@@ -13,7 +13,6 @@ class Submission extends Model
         'name',
         'email',
         'phone_number',
-        'target_language',
         'notes',
         'file_path',
         'status',

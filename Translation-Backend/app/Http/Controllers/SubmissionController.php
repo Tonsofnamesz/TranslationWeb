@@ -28,7 +28,6 @@ class SubmissionController extends Controller
             'name' => 'required',
             'email' => 'required|email',
             'phone_number' => 'required|string|max:20',
-            'target_language' => 'required',
             'file' => 'required|file|mimes:pdf,doc,docx',
         ]);
 
@@ -40,7 +39,6 @@ class SubmissionController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'phone_number' => $request->phone_number,
-            'target_language' => $request->target_language,
             'notes' => $request->notes,
             'file_path' => $filePath,
         ]);
