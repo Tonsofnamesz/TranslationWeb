@@ -1,33 +1,48 @@
 import React from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Header: React.FC = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  // Handle "Submit Form" button depending on current page
+  const handleSubmitClick = () => {
+    if (location.pathname === "/") {
+      // already on home → scroll to #submit
+      const section = document.querySelector("#submit");
+      if (section) section.scrollIntoView({ behavior: "smooth" });
+    } else {
+      // navigate to home first, then scroll
+      navigate("/#submit");
+    }
+  };
+
   return (
     <aside className="fixed top-0 left-0 h-full w-64 bg-[#1E1E1E] shadow-lg flex flex-col justify-between font-[Afacad]">
       {/* Logo / Brand */}
       <div>
         <div className="px-6 py-6 border-b border-gray-700 flex items-center">
-          <div className="bg-white w-16 h-16 rounded-md flex items-center justify-center">
-          </div>
+          <div className="bg-white w-16 h-16 rounded-md flex items-center justify-center"></div>
         </div>
 
         {/* Navigation Links */}
         <nav className="mt-6">
           <ul className="flex flex-col space-y-2 px-4 text-gray-300 font-medium">
             <li>
-              <a
-                href="#home"
+              <Link
+                to="/"
                 className="block px-3 py-2 rounded-lg hover:bg-[#AB6A10]/20 hover:text-[#F7F5F2] transition font-['Playfair_Display']"
               >
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#service"
+              <Link
+                to="/services"
                 className="block px-3 py-2 rounded-lg hover:bg-[#AB6A10]/20 hover:text-[#F7F5F2] transition font-['Playfair_Display']"
               >
                 Service
-              </a>
+              </Link>
             </li>
             <li>
               <a
@@ -53,13 +68,15 @@ const Header: React.FC = () => {
                 Contact
               </a>
             </li>
+
+            {/* Submit Form Button */}
             <li className="pt-4 border-t border-gray-700 mt-2">
-              <a
-                href="#submit"
-                className="block text-center px-3 py-2 rounded-lg bg-[#F7F5F2] text-[#1E1E1E] hover:bg-[#925b0e] transition font-semibold"
+              <button
+                onClick={handleSubmitClick}
+                className="w-full text-center px-3 py-2 rounded-lg bg-[#F7F5F2] text-[#1E1E1E] hover:bg-[#925b0e] transition font-semibold"
               >
                 Submit Form
-              </a>
+              </button>
             </li>
           </ul>
         </nav>
@@ -74,6 +91,7 @@ const Header: React.FC = () => {
 };
 
 export default Header;
+
 
 
 

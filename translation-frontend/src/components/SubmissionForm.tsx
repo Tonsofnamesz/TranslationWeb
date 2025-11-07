@@ -78,7 +78,7 @@ const SubmissionForm: React.FC = () => {
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-6 py-12">
+    <section id="submit" className="max-w-6xl mx-auto px-6 py-12">
       <div className="flex flex-col lg:flex-row gap-12 items-start">
         {/* Left Side — Form */}
         <div className="lg:w-2/3">
@@ -237,7 +237,7 @@ const SubmissionForm: React.FC = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
