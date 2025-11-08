@@ -44,10 +44,13 @@ class SubmissionController extends Controller
         ]);
 
         // Send email to translator (dummy example)
+        //Mail::to('sguerande@yahoo.fr') //dont forget to change this to the actual translator email
+        //->cc('jonathanryan2015@gmail.com')
         Mail::to('jonathanryan2015@gmail.com') //dont forget to change this to the actual translator email
-        //->cc('jonathanryan2015@gmail.com)
+        //->cc('jonathanryan2015@gmail.com')
         ->send(new SubmissionReceived($submission));
         
+        //sguerande@yahoo.fr
         return response()->json([
             'message' => 'Submission received and sent to translator!',
             'data' => $submission

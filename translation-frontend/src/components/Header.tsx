@@ -45,12 +45,12 @@ const Header: React.FC = () => {
               </Link>
             </li>
             <li>
-              <a
-                href="#about"
+              <Link
+                to="/about"
                 className="block px-3 py-2 rounded-lg hover:bg-[#AB6A10]/20 hover:text-[#F7F5F2] transition font-['Playfair_Display']"
               >
                 About
-              </a>
+              </Link>
             </li>
             <li>
               <a
