@@ -14,16 +14,16 @@ const About: React.FC = () => {
 
       {/* Main Content */}
       <main className="flex-grow flex flex-col bg-[#F7F5F2]">
-        {/* Section 1: Intro */}
+        {/* Intro */}
         <AboutIntro />
 
-        {/* Section 2: Mission */}
+        {/* Mission */}
         <AboutMission />
 
-        {/* Section 3: Expertis */}
+        {/* Expertis */}
         <AboutExpertise />
 
-        {/* Section 4: Info */}
+        {/* Info */}
         <AboutInfo />
 
         {/* Footer */}

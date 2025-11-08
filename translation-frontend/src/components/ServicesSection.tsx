@@ -1,18 +1,26 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const ServicesSection: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handleGoToSection = (sectionId: string) => {
+    // Navigate to /services page, then scroll to section
+    navigate(`/services#${sectionId}`);
+  };
+
   return (
     <section
       id="services"
       className="relative py-16 px-6 text-center font-[Afacad]"
       style={{
-        backgroundImage: `url('/assets/batik2.png')`, // Replace with your actual image path
+        backgroundImage: `url('/assets/batik2.png')`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
       }}
     >
-      {/* Transparent overlay for better text readability */}
+      {/* Transparent overlay */}
       <div className="absolute inset-0 bg-white bg-opacity-90"></div>
 
       <div className="relative max-w-5xl mx-auto">
@@ -24,15 +32,15 @@ const ServicesSection: React.FC = () => {
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-          {/* Service 1 */}
+          {/* Service 1 — Translation */}
           <div className="bg-[#ECE6DE] shadow rounded-lg p-6 hover:shadow-md transition text-left relative">
             <div className="flex items-center mb-3">
               <div className="w-10 h-10 bg-[#CEC6BB] rounded flex items-center justify-center mr-3">
-              <img
-              src="/assets/lang.png"
-              alt="Document Translation Icon"
-              className="w-7 h-7 object-contain"
-              />
+                <img
+                  src="/assets/lang.png"
+                  alt="Document Translation Icon"
+                  className="w-7 h-7 object-contain"
+                />
               </div>
               <h3 className="font-semibold text-xl text-[#AB6A10] font-['Playfair_Display']">
                 Translations
@@ -44,23 +52,23 @@ const ServicesSection: React.FC = () => {
               <li>Other Translation Services</li>
             </ul>
             {/* Details link */}
-            <a
-              href="#"
+            <button
+              onClick={() => handleGoToSection("translation")}
               className="absolute bottom-4 right-6 text-sm font-medium text-[#6E6457] hover:underline"
             >
               Details →
-            </a>
+            </button>
           </div>
 
-          {/* Service 2 */}
+          {/* Service 2 — Interpreting */}
           <div className="bg-[#ECE6DE] shadow rounded-lg p-6 hover:shadow-md transition text-left relative">
             <div className="flex items-center mb-3">
               <div className="w-10 h-10 bg-[#CEC6BB] rounded flex items-center justify-center mr-3">
-              <img
-              src="/assets/comms.png"
-              alt="Document Translation Icon"
-              className="w-7 h-7 object-contain"
-              />
+                <img
+                  src="/assets/comms.png"
+                  alt="Interpreting Icon"
+                  className="w-7 h-7 object-contain"
+                />
               </div>
               <h3 className="font-semibold text-xl text-[#AB6A10] font-['Playfair_Display']">
                 Interpreting
@@ -70,15 +78,15 @@ const ServicesSection: React.FC = () => {
               <li>Simultaneous Interpreting</li>
               <li>Consecutive Interpreting</li>
               <li>Liaison & Legal Interpreting</li>
-              <li>Online / remote Interpreting</li>
+              <li>Online / Remote Interpreting</li>
             </ul>
             {/* Details link */}
-            <a
-              href="#"
+            <button
+              onClick={() => handleGoToSection("interpreting")}
               className="absolute bottom-4 right-6 text-sm font-medium text-[#6E6457] hover:underline"
             >
               Details →
-            </a>
+            </button>
           </div>
         </div>
       </div>
@@ -87,5 +95,6 @@ const ServicesSection: React.FC = () => {
 };
 
 export default ServicesSection;
+
 
 

@@ -5,15 +5,13 @@ const Header: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Handle "Submit Form" button depending on current page
-  const handleSubmitClick = () => {
+  // Scroll helper — handles both in-page and cross-page scroll
+  const handleScroll = (targetId: string) => {
     if (location.pathname === "/") {
-      // already on home → scroll to #submit
-      const section = document.querySelector("#submit");
+      const section = document.querySelector(targetId);
       if (section) section.scrollIntoView({ behavior: "smooth" });
     } else {
-      // navigate to home first, then scroll
-      navigate("/#submit");
+      navigate(`/${targetId}`);
     }
   };
 
@@ -52,27 +50,31 @@ const Header: React.FC = () => {
                 About
               </Link>
             </li>
+
+            {/* Process link → scroll to #process on Home */}
             <li>
-              <a
-                href="#process"
-                className="block px-3 py-2 rounded-lg hover:bg-[#AB6A10]/20 hover:text-[#F7F5F2] transition font-['Playfair_Display']"
+              <button
+                onClick={() => handleScroll("#process")}
+                className="block w-full text-left px-3 py-2 rounded-lg hover:bg-[#AB6A10]/20 hover:text-[#F7F5F2] transition font-['Playfair_Display']"
               >
                 Process
-              </a>
+              </button>
             </li>
+
+            {/* Contact link → scroll to #submit on Home */}
             <li>
-              <a
-                href="#contact"
-                className="block px-3 py-2 rounded-lg hover:bg-[#AB6A10]/20 hover:text-[#F7F5F2] transition font-['Playfair_Display']"
+              <button
+                onClick={() => handleScroll("#submit")}
+                className="block w-full text-left px-3 py-2 rounded-lg hover:bg-[#AB6A10]/20 hover:text-[#F7F5F2] transition font-['Playfair_Display']"
               >
                 Contact
-              </a>
+              </button>
             </li>
 
             {/* Submit Form Button */}
             <li className="pt-4 border-t border-gray-700 mt-2">
               <button
-                onClick={handleSubmitClick}
+                onClick={() => handleScroll("#submit")}
                 className="w-full text-center px-3 py-2 rounded-lg bg-[#F7F5F2] text-[#1E1E1E] hover:bg-[#925b0e] transition font-semibold"
               >
                 Submit Form
@@ -84,13 +86,14 @@ const Header: React.FC = () => {
 
       {/* Footer Section */}
       <div className="px-6 py-4 border-t border-gray-700 text-sm text-gray-400 text-center">
-        © 2025 Lorem Ipsum
+        <p>&copy; {new Date().getFullYear()} Sophie Guérande. All rights reserved.</p>
       </div>
     </aside>
   );
 };
 
 export default Header;
+
 
 
 

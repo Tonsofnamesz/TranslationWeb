@@ -13,14 +13,18 @@ const Services: React.FC = () => {
 
       {/* Main Content */}
       <main className="flex-grow flex flex-col bg-[#F7F5F2]">
-        {/* Section 1: Intro */}
+        {/* Intro Section */}
         <ServiceIntro />
 
-        {/* Section 2: Translation */}
-        <ServiceTranslation />
+        {/* Translation Section */}
+        <div id="translation" className="scroll-mt-24">
+          <ServiceTranslation />
+        </div>
 
-        {/* Section 3: Interpreting */}
-        <ServiceInterpreting />
+        {/* Interpreting Section */}
+        <div id="interpreting" className="scroll-mt-24">
+          <ServiceInterpreting />
+        </div>
 
         {/* Footer */}
         <Footer />
@@ -30,4 +34,5 @@ const Services: React.FC = () => {
 };
 
 export default Services;
+
 
