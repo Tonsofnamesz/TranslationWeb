@@ -52,7 +52,7 @@ class SubmissionController extends Controller
         
         //sguerande@yahoo.fr
         return response()->json([
-            'message' => 'Submission received and sent to translator!',
+            'message' => 'Submission sent to translator!',
             'data' => $submission
         ], 201);
     }
