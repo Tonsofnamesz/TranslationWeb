@@ -54,7 +54,8 @@ const SubmissionForm: React.FC = () => {
       setMessage(null);
 
       const res = await axios.post(
-        "http://127.0.0.1:8000/api/submissions",
+        "https://necessary-mora-jonathanryan2015-d56bceca.koyeb.app/api/submissions",
+        //"http://127.0.0.1:8000/api/submissions",
         submission,
         {
           headers: { "Content-Type": "multipart/form-data" },
