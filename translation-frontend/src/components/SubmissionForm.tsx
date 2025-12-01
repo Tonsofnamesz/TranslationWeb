@@ -57,9 +57,9 @@ const SubmissionForm: React.FC = () => {
         "https://necessary-mora-jonathanryan2015-d56bceca.koyeb.app/api/submissions",
         //"http://127.0.0.1:8000/api/submissions",
         submission,
-        {
-          headers: { "Content-Type": "multipart/form-data" },
-        }
+        // {
+        //   headers: { "Content-Type": "multipart/form-data" },
+        // }
       );
 
       setMessage("✅ Success: " + res.data.message);
