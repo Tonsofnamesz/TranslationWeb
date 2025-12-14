@@ -74,15 +74,20 @@ const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-2 text-gray-300 text-[#FFF6E6]">
               <li>
-                <span className="hover:underline hover:text-[#AB6A10] transition cursor-pointer">
+                <button
+                  onClick={() => navigate("/privacy-policy")}
+                  className="hover:underline hover:text-[#AB6A10] transition"
+                >
                   Privacy Policy
-                </span>
-              </li>
+                </button></li>
               <li>
-                <span className="hover:underline hover:text-[#AB6A10] transition cursor-pointer">
+              <button
+                  onClick={() => navigate("/terms-of-service")}
+                  className="hover:underline hover:text-[#AB6A10] transition"
+                >
                   Terms of Service
-                </span>
-              </li>
+                </button>
+              </li>             
               <li>
                 <button
                   onClick={() => handleScroll("#submit", "/")}

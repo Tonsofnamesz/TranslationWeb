@@ -20,7 +20,13 @@ const Header: React.FC = () => {
       {/* Logo / Brand */}
       <div>
         <div className="px-6 py-6 border-b border-gray-700 flex items-center">
-          <div className="bg-white w-16 h-16 rounded-md flex items-center justify-center"></div>
+          <div className="bg-white w-16 h-16 rounded-md flex items-center justify-center">
+            <img
+            src="/assets/favicon-32x32.png"
+            alt="Service Introduction"
+            className="w-full h-full object-cover"
+          />
+          </div>
         </div>
 
         {/* Navigation Links */}
