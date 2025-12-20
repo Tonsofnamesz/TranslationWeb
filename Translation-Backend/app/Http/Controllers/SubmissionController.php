@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Submission;
 use App\Mail\SubmissionReceived;
+use App\Mail\SubmissionConfirmation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
@@ -26,15 +27,13 @@ class SubmissionController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|email:rfc,dns',
             'phone_number' => 'required|string|max:20',
             'file' => 'required|file|mimes:pdf,doc,docx',
         ]);
 
-        // Store file
         $filePath = $request->file('file')->store('submissions', 'public');
 
-        // Save to DB
         $submission = Submission::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -43,14 +42,14 @@ class SubmissionController extends Controller
             'file_path' => $filePath,
         ]);
 
-        // Send email to translator (dummy example)
         Mail::to('sguerande@yahoo.fr')
         ->cc('jonathanryan2015@gmail.com')
-        // Mail::to('jonathanryan2015@gmail.com') //dont forget to change this to the actual translator email
-        //->cc('jonathanryan2015@gmail.com')
         ->send(new SubmissionReceived($submission));
         
-        //sguerande@yahoo.fr
+        // Auto-reply to user
+        Mail::to($submission->email)
+        ->send(new SubmissionConfirmation($submission));
+
         return response()->json([
             'message' => 'Submission sent to translator!',
             'data' => $submission

@@ -38,7 +38,7 @@ const SubmissionForm: React.FC = () => {
     e.preventDefault();
 
     if (!formData.file) {
-      setMessage("⚠️ Please upload a file before submitting.");
+      setMessage("Please upload a file before submitting.");
       return;
     }
 
