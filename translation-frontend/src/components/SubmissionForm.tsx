@@ -62,7 +62,7 @@ const SubmissionForm: React.FC = () => {
         // }
       );
 
-      setMessage("✅ Success: " + res.data.message);
+      setMessage(" Success: " + res.data.message);
       setFormData({
         name: "",
         email: "",
@@ -72,7 +72,7 @@ const SubmissionForm: React.FC = () => {
       });
     } catch (err: any) {
       console.error(err);
-      setMessage("❌ Error: Could not submit");
+      setMessage(" Error: Could not submit");
     } finally {
       setLoading(false);
     }
@@ -96,9 +96,9 @@ const SubmissionForm: React.FC = () => {
           {message && (
             <p
               className={`mb-4 ${
-                message.startsWith("✅")
+                message.startsWith("")
                   ? "text-green-600"
-                  : message.startsWith("❌")
+                  : message.startsWith("")
                   ? "text-red-600"
                   : "text-yellow-600"
               }`}
