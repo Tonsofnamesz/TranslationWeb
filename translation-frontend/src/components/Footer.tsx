@@ -85,7 +85,7 @@ const Footer: React.FC = () => {
                   onClick={() => navigate("/terms-of-service")}
                   className="hover:underline hover:text-[#AB6A10] transition"
                 >
-                  Terms of Service
+                  Legal Notice
                 </button>
               </li>             
               <li>
