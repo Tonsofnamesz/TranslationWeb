@@ -1,7 +1,6 @@
 import React from "react";
 import Header from "../components/Header";
 import CompanyInfo from "../components/CompanyInfo";
-import ServicesSection from "../components/ServicesSection";
 import QualitySection from "../components/QualitySection";
 import HowItWorks from "../components/HowItWorks";
 import SubmissionForm from "../components/SubmissionForm";
