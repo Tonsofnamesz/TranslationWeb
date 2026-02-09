@@ -16,7 +16,7 @@ const AboutIntro: React.FC = () => {
         {/* Title and Subtitle */}
         <div className="pt-4">
           <h1 className="text-5xl font-semibold text-[#1E1E1E] mb-2">
-            About Us
+            About Me
           </h1>
           <p className="text-lg text-[#6E6457]">
             Sworn French – Indonesian – Malay Translator

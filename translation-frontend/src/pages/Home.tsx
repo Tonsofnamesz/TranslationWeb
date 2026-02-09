@@ -18,9 +18,6 @@ const Home: React.FC = () => {
         {/* Company Info */}
         <CompanyInfo />
 
-        {/* Services */}
-        <ServicesSection />
-
         {/* Quality */}
         <QualitySection />
 

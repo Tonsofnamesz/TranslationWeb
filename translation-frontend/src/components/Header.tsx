@@ -45,7 +45,7 @@ const Header: React.FC = () => {
                 to="/services"
                 className="block px-3 py-2 rounded-lg hover:bg-[#AB6A10]/20 hover:text-[#F7F5F2] transition font-['Playfair_Display']"
               >
-                Service
+                Services
               </Link>
             </li>
             <li>
@@ -53,7 +53,7 @@ const Header: React.FC = () => {
                 to="/about"
                 className="block px-3 py-2 rounded-lg hover:bg-[#AB6A10]/20 hover:text-[#F7F5F2] transition font-['Playfair_Display']"
               >
-                About
+                About Me
               </Link>
             </li>
 
@@ -83,16 +83,11 @@ const Header: React.FC = () => {
                 onClick={() => handleScroll("#submit")}
                 className="w-full text-center px-3 py-2 rounded-lg bg-[#F7F5F2] text-[#1E1E1E] hover:bg-[#925b0e] transition font-semibold"
               >
-                Submit Form
+                Submit Document
               </button>
             </li>
           </ul>
         </nav>
-      </div>
-
-      {/* Footer Section */}
-      <div className="px-6 py-4 border-t border-gray-700 text-sm text-gray-400 text-center">
-        <p>&copy; {new Date().getFullYear()} Sophie Guérande. All rights reserved.</p>
       </div>
     </aside>
   );
