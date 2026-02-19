@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
           <h3 className="text-2xl font-semibold mb-4 text-left text-[#FFF6E6]">
             Sophie Guérande
           </h3>
-          <p className="text-gray-300 mb-6 leading-relaxed text-[#FFF6E6]">
+          <p className="mb-6 leading-relaxed text-[#FFF6E6]">
             Sophie Guérande - A court-appointed sworn translator for French, Indonesian, and Malay with over 11 years of experience specializing in legal, financial, and business documents.
           </p>
 
@@ -51,7 +51,7 @@ const Footer: React.FC = () => {
               <li>
                 <button
                   onClick={() => handleScroll("#translation", "/services")}
-                  className="hover:underline hover:text-[#AB6A10] transition"
+                  className=" text-[#FFF6E6] hover:underline hover:text-[#AB6A10] transition"
                 >
                   Translation
                 </button>
@@ -59,7 +59,7 @@ const Footer: React.FC = () => {
               <li>
                 <button
                   onClick={() => handleScroll("#interpreting", "/services")}
-                  className="hover:underline hover:text-[#AB6A10] transition"
+                  className=" text-[#FFF6E6] hover:underline hover:text-[#AB6A10] transition"
                 >
                   Interpreting
                 </button>
@@ -76,14 +76,14 @@ const Footer: React.FC = () => {
               <li>
                 <button
                   onClick={() => navigate("/privacy-policy")}
-                  className="hover:underline hover:text-[#AB6A10] transition"
+                  className="text-[#FFF6E6] hover:underline hover:text-[#AB6A10] transition"
                 >
                   Privacy Policy
                 </button></li>
               <li>
               <button
                   onClick={() => navigate("/terms-of-service")}
-                  className="hover:underline hover:text-[#AB6A10] transition"
+                  className="text-[#FFF6E6] hover:underline hover:text-[#AB6A10] transition"
                 >
                   Legal Notice
                 </button>
@@ -91,7 +91,7 @@ const Footer: React.FC = () => {
               <li>
                 <button
                   onClick={() => handleScroll("#submit", "/")}
-                  className="hover:underline hover:text-[#AB6A10] transition"
+                  className="text-[#FFF6E6] hover:underline hover:text-[#AB6A10] transition"
                 >
                   Contact
                 </button>

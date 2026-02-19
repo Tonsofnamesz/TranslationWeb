@@ -59,7 +59,7 @@ const ServiceTranslation: React.FC = () => {
             onClick={handleGoToSubmit}
             className="mt-6 px-6 py-3 bg-[#1E1E1E] text-white font-semibold rounded-lg hover:bg-[#925b0e] transition-colors"
           >
-            Submit Form
+            Submit Document
           </button>
         </div>
 

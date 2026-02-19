@@ -43,7 +43,7 @@ class SubmissionController extends Controller
         ]);
 
         Mail::to('sguerande@yahoo.fr')
-        ->cc('jonathanryan2015@gmail.com')
+        //->cc('jonathanryan2015@gmail.com')
         ->send(new SubmissionReceived($submission));
         
         // Auto-reply to user

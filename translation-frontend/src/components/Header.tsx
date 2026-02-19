@@ -83,7 +83,7 @@ const Header: React.FC = () => {
                 onClick={() => handleScroll("#submit")}
                 className="w-full text-center px-3 py-2 rounded-lg bg-[#F7F5F2] text-[#1E1E1E] hover:bg-[#925b0e] transition font-semibold"
               >
-                Submit Document
+                Submit a Document
               </button>
             </li>
           </ul>

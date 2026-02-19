@@ -208,7 +208,7 @@ const SubmissionForm: React.FC = () => {
           </p>
 
           <div>
-            <h3 className="text-xl font-semibold text-gray-800 mb-4 text-left">
+            <h3 className="text-xl text-[#D88F29] font-['Playfair_Display'] mb-4 text-left">
               Contact
             </h3>
 

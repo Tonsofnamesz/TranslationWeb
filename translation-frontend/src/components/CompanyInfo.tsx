@@ -56,7 +56,7 @@ const CompanyInfo: React.FC = () => {
         href="#submit"
         className="inline-block px-6 py-3 bg-[#1E1E1E] text-white font-semibold rounded-lg hover:bg-[#925b0e] transition-colors"
       >
-        Submit Form
+        Submit Document
       </a>
     </section>
   );
