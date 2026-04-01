@@ -6,8 +6,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-      afacad: ['Afacad', 'sans-serif'],
-      playfair: ['Playfair Display', 'serif'],
+      playfair: ['"Playfair Display"', 'serif'],
+      montserrat: ['"Montserrat"', 'serif'],
+      afacad: ['Afacad', 'sans-serif'],      
     },
     },
   },

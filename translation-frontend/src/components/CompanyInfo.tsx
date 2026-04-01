@@ -1,6 +1,10 @@
 import React from "react";
+import { useLanguage } from "./LanguageContext";
 
 const CompanyInfo: React.FC = () => {
+
+  const { t } = useLanguage();
+
   return (
     <section
       id="about"
@@ -16,48 +20,72 @@ const CompanyInfo: React.FC = () => {
       }}
     >
       {/* Title */}
-      <h2 className="text-3xl font-semibold text-gray-800 mb-4">
-        Sworn and legal translations
+      <h2 className="text-6xl font-playfair text-[#1E1E1E] mb-10 leading-tight">
+        {t.companyIntro.title.name} <br /> {t.companyIntro.title.subtitle}
       </h2>
 
-      {/* Language Pairs */}
-      <div className="text-lg text-[#AB6A10] font-medium space-y-1 mb-6">
-        <h3>French ↔ Indonesian</h3>
-        <h3>Malay → French</h3>
+      {/* Section 1 */}
+      <div className="mb-8 max-w-3xl">
+        <h3 className="text-4xl font-playfair text-[#6E6457] mb-2">
+          {t.companyIntro.section1.title}
+        </h3>
+        <div className="text-xl text-[#1E1E1E] font-montserrat leading-relaxed">
+          {t.companyIntro.section1.paragraphs.map((p: string, i: number) => (
+            <p key={i}>{p}</p>
+          ))}
+        </div>
       </div>
 
-      {/* Description */}
-      <p className="text-gray-700 max-w-3xl leading-relaxed mb-4">
-        My name is Sophie Guérande, and I am a sworn translator and interpreter. French is my native language.
-      </p>
+      {/* Section 2 */}
+      <div className="mb-10 max-w-3xl">
+        <h3 className="text-4xl font-playfair text-[#6E6457] mb-2">
+          {t.companyIntro.section2.title}
+        </h3>
 
-      <p className="text-gray-700 max-w-3xl leading-relaxed mb-4">
-        I hold a Master’s degree in Applied Foreign Languages, specializing in English and Indonesian, and a Master’s degree in International Business (Asia), both awarded with honours by the University of La Rochelle, France.
-      </p>
+        <div className="text-xl text-[#1E1E1E] font-montserrat leading-relaxed space-y-1">
+          {t.companyIntro.section2.languages.map((lang: string, i: number) => (
+            <p key={i}>{lang}</p>
+          ))}
+        </div>
+      </div>
 
-      <p className="text-gray-700 max-w-3xl leading-relaxed mb-4">
-        For over eleven years, I worked at the Embassy of Indonesia in Paris, translating a wide range of documents on a daily basis, including official acts, diplomatic notes, and economic press articles. This experience refined my ability to deliver precise, contextually accurate, and culturally informed translations.
-      </p>
+      {/* Stats Row */}
+      <div className="max-w-4xl border-t border-b border-[#6E6457] py-6 mb-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          <div>
+            <p className="text-4xl font-bold font-playfair text-[#D88F29]">15+</p>
+            <p className="text-xl font-montserrat text-[#1E1E1E]">{t.companyIntro.stats.experience.label}</p>
+          </div>
 
-      <p className="text-gray-700 max-w-3xl leading-relaxed mb-4">
-        My academic background, combined with two extensive internships in Jakarta and my professional experience at the Indonesian Embassy gives me deep insight into Indonesian business culture, cross-cultural communication, and language nuances. I provide translations that are not only accurate but also culturally appropriate and tailored to your specific needs.
-      </p>
+          <div>
+            <p className="text-4xl font-bold font-playfair text-[#D88F29]">3–5</p>
+            <p className="text-xl font-montserrat text-[#1E1E1E]">{t.companyIntro.stats.delivery.label}</p>
+          </div>
 
-      <p className="text-gray-700 max-w-3xl leading-relaxed mb-4">
-        In 2022, I became a certified translator and interpreter (sworn translator or traductrice assermentée in French) recognized by the French Ministry of Justice, authorized to produce sworn and certified translations with full legal validity.
-      </p>
+          <div>
+            <p className="text-4xl font-bold font-playfair text-[#D88F29]">800+</p>
+            <p className="text-xl font-montserrat text-[#1E1E1E]">{t.companyIntro.stats.documents.label}</p>
+          </div>
 
-      <p className="text-gray-700 max-w-3xl leading-relaxed mb-4">
-        Whether you need translations for legal, business or private purposes, I ensure accuracy, cultural sensitivity, and reliability in every project.
-      </p>
+          <div>
+            <p className="text-4xl font-bold font-playfair text-[#D88F29]">100%</p>
+            <p className="text-xl font-montserrat text-[#1E1E1E]">{t.companyIntro.stats.satisfaction.label}n</p>
+          </div>
+        </div>
+      </div>
 
       {/* Submit Button */}
       <a
         href="#submit"
-        className="inline-block px-6 py-3 bg-[#1E1E1E] text-white font-semibold rounded-lg hover:bg-[#925b0e] transition-colors"
+        className="inline-block px-6 py-3 bg-[#1E1E1E] text-white font-montserrat rounded-lg hover:bg-[#925b0e] transition-colors"
       >
-        Submit Document
+        {t.companyIntro.cta.button}
       </a>
+
+      {/* Small Text */}
+      <p className="text-m font-montserrat text-[#6E6457] mt-3">
+        {t.companyIntro.cta.note}
+      </p>
     </section>
   );
 };

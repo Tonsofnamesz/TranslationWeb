@@ -1,9 +1,13 @@
 import React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Globe } from "lucide-react";
+import { useLanguage } from "./LanguageContext";
+
 
 const Header: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const { t, setLang } = useLanguage();
 
   // Scroll helper — handles both in-page and cross-page scroll
   const handleScroll = (targetId: string) => {
@@ -20,12 +24,12 @@ const Header: React.FC = () => {
       {/* Logo / Brand */}
       <div>
         <div className="px-6 py-6 border-b border-gray-700 flex items-center">
-          <div className="bg-white w-16 h-16 rounded-md flex items-center justify-center">
+          <div className=" w-16 h-18 rounded-md flex items-center justify-center">
             <img
-            src="/assets/favicon-32x32.png"
-            alt="Service Introduction"
-            className="w-full h-full object-cover"
-          />
+              src="/assets/icon.png"
+              alt="Service Introduction"
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
 
@@ -37,47 +41,81 @@ const Header: React.FC = () => {
                 to="/"
                 className="block px-3 py-2 rounded-lg hover:bg-[#AB6A10]/20 hover:text-[#F7F5F2] transition font-['Playfair_Display']"
               >
-                Home
+                {t.nav.home}
               </Link>
             </li>
             <li>
-              <Link
-                to="/services"
-                className="block px-3 py-2 rounded-lg hover:bg-[#AB6A10]/20 hover:text-[#F7F5F2] transition font-['Playfair_Display']"
+              <button
+                onClick={() => handleScroll("#service")}
+                className="block w-full text-left px-3 py-2 rounded-lg hover:bg-[#AB6A10]/20 hover:text-[#F7F5F2] transition font-['Playfair_Display']"
               >
-                Services
-              </Link>
+                {t.nav.services}
+              </button>
             </li>
             <li>
-              <Link
-                to="/about"
-                className="block px-3 py-2 rounded-lg hover:bg-[#AB6A10]/20 hover:text-[#F7F5F2] transition font-['Playfair_Display']"
+              <button
+                onClick={() => handleScroll("#aboutme")}
+                className="block w-full text-left px-3 py-2 rounded-lg hover:bg-[#AB6A10]/20 hover:text-[#F7F5F2] transition font-['Playfair_Display']"
               >
-                About Me
-              </Link>
+                {t.nav.about}
+              </button>
             </li>
-
             {/* Process link → scroll to #process on Home */}
             <li>
               <button
                 onClick={() => handleScroll("#process")}
                 className="block w-full text-left px-3 py-2 rounded-lg hover:bg-[#AB6A10]/20 hover:text-[#F7F5F2] transition font-['Playfair_Display']"
               >
-                Process
+                {t.nav.process}
               </button>
             </li>
 
             {/* Contact link → scroll to #submit on Home */}
             <li>
               <button
+                onClick={() => handleScroll("#contacthome")}
+                className="block w-full text-left px-3 py-2 rounded-lg hover:bg-[#AB6A10]/20 hover:text-[#F7F5F2] transition font-['Playfair_Display']"
+              >
+                {t.nav.contact}
+              </button>
+            </li>
+            <li>
+              <button
                 onClick={() => handleScroll("#submit")}
                 className="block w-full text-left px-3 py-2 rounded-lg hover:bg-[#AB6A10]/20 hover:text-[#F7F5F2] transition font-['Playfair_Display']"
               >
-                Contact
+                {t.nav.submit}
               </button>
             </li>
 
-            {/* Submit Form Button */}
+            {/* Language Selector */}
+            <div className="mt-16 px-6 py-20">
+              <div className="flex items-center gap-3 text-sm font-medium text-[#FFF6E6]">
+
+                {/* Globe */}
+                <Globe size={18} />
+
+                {/* Languages */}
+                <button onClick={() => setLang("en")} className="hover:text-[#AB6A10] transition">
+                  EN
+                </button>
+
+                <span className="text-gray-500">|</span>
+
+                <button onClick={() => setLang("fr")} className="hover:text-[#AB6A10] transition">
+                  FR
+                </button>
+
+                <span className="text-gray-500">|</span>
+
+                <button onClick={() => setLang("id")} className="hover:text-[#AB6A10] transition">
+                  ID
+                </button>
+
+              </div>
+            </div>
+
+            {/* Submit Form Button
             <li className="pt-4 border-t border-gray-700 mt-2">
               <button
                 onClick={() => handleScroll("#submit")}
@@ -85,7 +123,7 @@ const Header: React.FC = () => {
               >
                 Submit a Document
               </button>
-            </li>
+            </li> */}
           </ul>
         </nav>
       </div>

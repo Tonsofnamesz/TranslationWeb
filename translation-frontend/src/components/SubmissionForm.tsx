@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Mail, MapPin } from "lucide-react";
+import { useLanguage } from "./LanguageContext";
 
 interface FormData {
   name: string;
@@ -11,6 +11,9 @@ interface FormData {
 }
 
 const SubmissionForm: React.FC = () => {
+
+  const { t } = useLanguage();
+
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -21,6 +24,7 @@ const SubmissionForm: React.FC = () => {
 
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
+  const [status, setStatus] = useState<"success" | "error" | null>(null);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -38,7 +42,8 @@ const SubmissionForm: React.FC = () => {
     e.preventDefault();
 
     if (!formData.file) {
-      setMessage("Please upload a file before submitting.");
+      setMessage(t.submission.messages.uploadRequired);
+      setStatus("error");
       return;
     }
 
@@ -52,6 +57,7 @@ const SubmissionForm: React.FC = () => {
     try {
       setLoading(true);
       setMessage(null);
+      setStatus(null);
 
       const res = await axios.post(
         "https://necessary-mora-jonathanryan2015-d56bceca.koyeb.app/api/submissions",
@@ -62,7 +68,8 @@ const SubmissionForm: React.FC = () => {
         // }
       );
 
-      setMessage(" Success: " + res.data.message);
+      setMessage(`${t.submission.messages.success}: ${res.data.message}`);
+      setStatus("success");
       setFormData({
         name: "",
         email: "",
@@ -72,47 +79,59 @@ const SubmissionForm: React.FC = () => {
       });
     } catch (err: any) {
       console.error(err);
-      setMessage(" Error: Could not submit");
+      setMessage(t.submission.messages.error);
+      setStatus("error");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <section id="submit" className="max-w-6xl mx-auto px-6 py-12">
+    <section id="submit" className="max-w-8xl mx-auto px-6 py-16">
       <div className="flex flex-col lg:flex-row gap-12 items-start">
-        {/* Left Side — Form */}
-        <div className="lg:w-2/3">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-2">
-            Submit a Document
+
+        {/* LEFT — IMAGE (25%) */}
+        <div className="lg:w-1/4 -ml-6 lg:-ml-70">
+          <img
+            src="/assets/batiksubmit.jpg"
+            alt="Submit Document"
+            className="w-[750px] h-[500px] object-cover rounded-lg shadow-md"
+          />
+        </div>
+
+        {/* RIGHT — FORM (75%) */}
+        <div className="lg:w-3/4 w-full">
+          <h2 className="text-2xl font-playfair text-[#1E1E1E] mb-2">
+            {t.submission.title}
           </h2>
-          <p className="text-lg font-medium text-[#AB6A10] mb-1">
-            Get Your Document Translated – Fast & Easy!
+          <p className="text-lg font-montserrat text-[#6E6457] mb-1">
+            {t.submission.subtitle}
           </p>
-          <p className="text-[#1E1E1E] mb-6">
-            Order your Indonesian or Malay translation in just one click.
-          </p>
+          <div className="font-montserrat text-[#6E6457] mb-6 space-y-1">
+            {t.submission.bullets.map((item: string, i: number) => (
+              <p key={i}>- {item}</p>
+            ))}
+          </div>
 
           {message && (
             <p
-              className={`mb-4 ${
-                message.startsWith("")
+              className={`mb-4 ${status === "success"
                   ? "text-green-600"
-                  : message.startsWith("")
-                  ? "text-red-600"
-                  : "text-yellow-600"
-              }`}
+                  : status === "error"
+                    ? "text-red-600"
+                    : "text-yellow-600"
+                }`}
             >
               {message}
             </p>
           )}
 
+          {/* FORM (UNCHANGED) */}
           <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Two-column layout */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Full Name
+                <label className="block text-sm font-montserrat text-gray-700 mb-1">
+                  {t.submission.form.name}
                 </label>
                 <input
                   type="text"
@@ -120,14 +139,14 @@ const SubmissionForm: React.FC = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full p-3 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-400 outline-none bg-white/80"
-                  placeholder="Enter your name"
+                  className="font-montserrat w-full p-3 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-400 outline-none bg-white/80"
+                  placeholder={t.submission.form.placeholders.name}
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Email Address
+                <label className="block text-sm font-montserrat text-gray-700 mb-1">
+                  {t.submission.form.email}
                 </label>
                 <input
                   type="email"
@@ -135,14 +154,14 @@ const SubmissionForm: React.FC = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full p-3 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-400 outline-none bg-white/80"
-                  placeholder="Enter your email"
+                  className="font-montserrat w-full p-3 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-400 outline-none bg-white/80"
+                  placeholder={t.submission.form.placeholders.phone}
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Phone Number
+                <label className="block text-sm font-montserrat text-gray-700 mb-1">
+                  {t.submission.form.phone}
                 </label>
                 <input
                   type="tel"
@@ -150,93 +169,52 @@ const SubmissionForm: React.FC = () => {
                   value={formData.phone_number}
                   onChange={handleChange}
                   required
-                  className="w-full p-3 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-400 outline-none bg-white/80"
-                  placeholder="Enter your phone number"
+                  className="font-montserrat w-full p-3 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-400 outline-none bg-white/80"
+                  placeholder={t.submission.form.placeholders.phone}
                 />
               </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Upload File
-              </label>
-              <input
-                type="file"
-                name="file"
-                accept=".pdf,.doc,.docx"
-                onChange={handleFileChange}
-                required
-                className="w-full border p-2 rounded-md shadow-sm bg-white/80 cursor-pointer hover:bg-white"
-              />
+
+              <div>
+                <label className="block text-sm font-montserrat text-gray-700 mb-1">
+                  {t.submission.form.file}
+                </label>
+                <input
+                  type="file"
+                  name="file"
+                  accept=".pdf,.doc,.docx"
+                  onChange={handleFileChange}
+                  required
+                  className="font-montserrat w-full border p-2 rounded-md font-montserrat shadow-sm bg-white/80 cursor-pointer hover:bg-white"
+                />
+              </div>
             </div>
 
-            </div>
-
-            {/* Notes */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Notes
+              <label className="block text-sm font-montserrat text-gray-700 mb-1">
+                {t.submission.form.notes}
               </label>
               <textarea
                 name="notes"
                 value={formData.notes}
                 onChange={handleChange}
                 rows={4}
-                className="w-full p-3 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-400 outline-none bg-white/80"
-                placeholder="Additional details or instructions"
+                className="font-montserrat w-full p-3 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-400 outline-none bg-white/80"
+                placeholder={t.submission.form.placeholders.notes}
               />
             </div>
 
-            {/* File upload */}
-
-            {/* Submit button */}
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-[#1E1E1E] text-white p-3 rounded-md font-semibold hover:bg-[#AB6A10] transition-colors shadow-md"
+              className="font-montserrat w-full bg-[#1E1E1E] text-white p-3 rounded-md hover:bg-[#AB6A10] transition-colors shadow-md"
             >
-              {loading ? "Submitting..." : "Submit"}
+              {loading
+                ? t.submission.form.submitting
+                : t.submission.form.submit}
             </button>
           </form>
         </div>
 
-        {/* Right Side — Description & Contact */}
-        <div className="lg:w-1/3 flex flex-col justify-start mt-10 lg:mt-16">
-          <p className="text-[#1E1E1E] mb-8">
-            <span className="font-semibold">
-              Official Sworn Translator | High-Quality, Accurate,
-              </span>{" "}
-             I provide translations that combine technical precision with linguistic finesse. Request your free, non-binding quote by sending your document in just one click!
-          </p>
-
-          <div>
-            <h3 className="text-xl text-[#D88F29] font-['Playfair_Display'] mb-4 text-left">
-              Contact
-            </h3>
-
-            <div className="space-y-6">
-              {/* Email */}
-              <div>
-                <div className="flex items-center gap-2 mb-1">
-                  <Mail className="text-[#1E1E1E]" size={20} />
-                  <h4 className="font-semibold text-[#000000]">Email</h4>
-                </div>
-                <p className="text-[#6E6457] ml-7">
-                  sguerande@yahoo.fr
-                </p>
-              </div>
-
-              {/* Address */}
-              <div>
-                <div className="flex items-center gap-2 mb-1">
-                  <MapPin className="text-[##6E6457]" size={20} />
-                  <h4 className="font-semibold text-[#000000]">Address</h4>
-                </div>
-                <p className="text-[#6E6457] ml-7">
-                  Toulouse - 06.509.63.507
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );

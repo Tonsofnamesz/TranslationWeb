@@ -20,3 +20,7 @@ code {
 html {
   scroll-behavior: smooth;
 }
+
+p {
+  hyphens: auto;
+}
