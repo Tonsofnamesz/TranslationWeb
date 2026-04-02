@@ -1,13 +1,13 @@
 import React from "react";
 import { Mail, MapPin, Phone } from "lucide-react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useLanguage } from "./LanguageContext";
 
 const Footer: React.FC = () => {
 
   const { t } = useLanguage();
 
-  const location = useLocation();
+  // const location = useLocation();
   const navigate = useNavigate();
 
   // const handleScroll = (targetId: string, page: string) => {
