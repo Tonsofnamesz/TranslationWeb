@@ -10,14 +10,14 @@ const Footer: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const handleScroll = (targetId: string, page: string) => {
-    if (location.pathname === page) {
-      const section = document.querySelector(targetId);
-      if (section) section.scrollIntoView({ behavior: "smooth" });
-    } else {
-      navigate(`${page}${targetId}`);
-    }
-  };
+  // const handleScroll = (targetId: string, page: string) => {
+  //   if (location.pathname === page) {
+  //     const section = document.querySelector(targetId);
+  //     if (section) section.scrollIntoView({ behavior: "smooth" });
+  //   } else {
+  //     navigate(`${page}${targetId}`);
+  //   }
+  // };
 
   return (
     <footer className="bg-[#1E1E1E] text-white font-[Afacad]">
