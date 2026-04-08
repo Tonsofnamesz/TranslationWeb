@@ -64,17 +64,16 @@ const ServiceTranslation: React.FC = () => {
                       </p>
                     </div>
                   ))}
+                  {/* Submit Button */}
+                  <button
+                    onClick={handleGoToSubmit}
+                    className="w-fit px-6 py-3 bg-[#1E1E1E] text-white font-montserrat rounded-lg hover:bg-[#925b0e] transition-colors mb-10"
+                  >
+                    {t.services.cta.submit}
+                  </button>
                 </div>
               </div>
             </div>
-
-            {/* Submit Button */}
-            <button
-              onClick={handleGoToSubmit}
-              className="w-fit px-6 py-3 bg-[#1E1E1E] text-white font-montserrat rounded-lg hover:bg-[#925b0e] transition-colors mb-10"
-            >
-              {t.services.cta.submit}
-            </button>
 
             {/* EXTRA 4 SECTIONS — NOW PERFECTLY ALIGNED */}
             <div className="space-y-6">

@@ -87,20 +87,20 @@ const SubmissionForm: React.FC = () => {
   };
 
   return (
-    <section id="submit" className="max-w-8xl mx-auto px-6 py-16">
+    <section id="submit" className="max-w-12xl mx-auto py-16">
       <div className="flex flex-col lg:flex-row gap-12 items-start">
 
         {/* LEFT — IMAGE (25%) */}
-        <div className="lg:w-1/4 -ml-6 lg:-ml-70">
+        <div className="lg:w-1/3 -ml-6 lg:-ml-70">
           <img
             src="/assets/batiksubmit.jpg"
             alt="Submit Document"
-            className="w-[750px] h-[500px] object-cover rounded-lg shadow-md"
+            className="w-[800px] h-[600px] object-cover rounded-lg shadow-md"
           />
         </div>
 
         {/* RIGHT — FORM (75%) */}
-        <div className="lg:w-3/4 w-full">
+        <div className="lg:w-3/5 w-full">
           <h2 className="text-2xl font-playfair text-[#1E1E1E] mb-2">
             {t.submission.title}
           </h2>
@@ -128,7 +128,7 @@ const SubmissionForm: React.FC = () => {
 
           {/* FORM (UNCHANGED) */}
           <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-montserrat text-gray-700 mb-1">
                   {t.submission.form.name}
